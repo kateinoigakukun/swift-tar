@@ -20,7 +20,7 @@ jobs:
     container:
       image: swift:${{ matrix.swift-version }}-noble
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Install Python
         run: apt-get update -q && apt-get install -y -q python3
       - name: Fetch test fixtures
@@ -34,7 +34,7 @@ jobs:
     name: macOS
     runs-on: macos-15
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Select Xcode
         run: sudo xcode-select -switch /Applications/Xcode_16.4.app
       - name: Fetch test fixtures
@@ -52,7 +52,7 @@ jobs:
         with:
           swift-version: swift-6.1-release
           swift-build: 6.1-RELEASE
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Fetch test fixtures
         run: python3 Vendor/checkout-dependency libarchive
       - name: Build
@@ -66,7 +66,7 @@ jobs:
     container:
       image: swift:6.1-noble
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Verify Embedded Swift compilation
         run: |
           swiftc \
@@ -84,7 +84,7 @@ jobs:
     container:
       image: swift:6.1-noble
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Install Static Linux SDK
         run: swift sdk install https://download.swift.org/swift-6.1-release/static-sdk/swift-6.1-RELEASE/swift-6.1-RELEASE_static-linux-0.0.1.artifactbundle.tar.gz --checksum 111c6f7d280a651208b8c74c0521dd99365d785c1976a6e23162f55f65379ac6
       - name: Build with Static Linux SDK
@@ -96,7 +96,7 @@ jobs:
     container:
       image: swift:6.2-noble
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Install Swift SDK for WebAssembly
         run: swift sdk install https://download.swift.org/swift-6.2.4-release/wasm-sdk/swift-6.2.4-RELEASE/swift-6.2.4-RELEASE_wasm.artifactbundle.tar.gz --checksum 32fdb8772d73bb174f77b5c59bc88a0d55003d75712832129394d3465158fb43
       - name: Build
@@ -106,7 +106,7 @@ jobs:
     name: Android
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: skiptools/swift-android-action@v2
         with:
           swift-version: '6.1'
